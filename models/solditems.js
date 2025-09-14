@@ -76,7 +76,7 @@ export default(sequelize)=>{
             
         },
         state:{
-            type:DataTypes.TINYINT,
+            type:DataTypes.SMALLINT,
             allowNull:false,
             validate:{
                 notEmpty:true
