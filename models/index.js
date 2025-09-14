@@ -21,11 +21,11 @@ if (config.use_env_variable) {
     sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-// sequelize.sync({ alter: true }).then(() => {
-//     console.log('Database synchronized with models.');
-//   }).catch((err) => {
-//     console.error('Error syncing database:', err);
-//   });
+sequelize.sync({ alter: true }).then(() => {
+    console.log('Database synchronized with models.');
+  }).catch((err) => {
+    console.error('Error syncing database:', err);
+  });
 
 fs.readdirSync(__dirname)
     .filter(file => {
