@@ -7,19 +7,25 @@ export default {
     password: "P@ssW0rd",
     database: "students_db",
     host: "localhost",
-    dialect: "mysql"
+    dialect: "postgres"
   },
 
   test: {
-    username: "root",
+    username: "postgres",
     password: null,
     database: "database_test",
     host: "127.0.0.1",
-    dialect: "mysql"
+    dialect: "postgres"
   },
 
   production: {
-    use_env_variable: "JAWSDB_URL",  // Heroku automatically sets this
-    dialect: "mysql"
+    use_env_variable: "DATABASE_URL",  // Render provides this
+    dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false // important for Render
+      }
+    }
   }
 };
